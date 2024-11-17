@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Account</title>
+</head>
+<style>
+    body {
+        background: radial-gradient(#fff , #fae9e9);
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><span><span>k</span>ordi</span> Sports</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" id="img-Home"><img src="images/cart.png" width="25px" height="25px" /></a>
+        </div>
+    </div>
+
+    <!-- ----------- Account Page ------------- -->
+    
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2" style="margin-bottom: 81px;">
+                    <img src="images/image1.png" width="100%">
+                </div>
+
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Signup</span>
+                            <hr id="Indicator">
+                            <p id="error-message"></p>
+                        </div>
+                        
+                        <form id="LoginForm">
+                            <input  type="email" placeholder="Email"   id="email-input">
+                            <input type="password" placeholder="Password" id="password-input">
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot Password</a>
+                        </form>
+                        
+                        <form id="RegForm">
+                            <input type="text" placeholder="Username" id="firstname-input">
+                            <input type="email" placeholder="Email"  id="email-input">
+                            <input type="password" placeholder="Password" id="password-input">
+                            <input type="password" name="repeat-password" id="repeat-password-input" placeholder="Repeat Password">
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-------------- Footer -------------->
+    <section>
+        <div class="footer" id="Contact">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Download App For Android and ios mobile phone</p>
+                        <div class="app-logo">
+                            <img src="images/play-store.png" />
+                            <img src="images/app-store.png" />
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <a href="index.html">
+                            <h3>
+                                <span>K<span>ordi </span></span>Sports
+                            </h3>
+                        </a>
+                        <p>
+                            Our Purpose Is To Sustainably Make the Pleasure and Benefits of
+                            Sports Accessible to the Many.
+                        </p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <a href="tel:+962790476651" target="_blank">
+                                <li>phone : 962 790 476 651</li>
+                            </a>
+                            <a href="mailto:mohkordi21@gmail.com" target="_blank">
+                                <li>Email : mohkordi21@gmail.com</li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <a href="https://x.com/home" target="_blank">
+                                <li>Twitter</li>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank">
+                                <li>Youtube</li>
+                            </a>
+                            <a href="https://web.facebook.com/" target="_blank">
+                                <li>Facebook</li>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <li>Instagram</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <hr />
+                <p class="Copyright">Copyright 2024@Mohammad-AlKordi</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--------  js for toggle Form  -------->
+    <script>
+
+// تابع التحقق من الاستمارة في الصفحة الخاصة بك
+const form = document.getElementById('LoginForm');
+const RegForm = document.getElementById('RegForm');
+const error_message = document.getElementById('error-message');
+
+// تعديل التحقق من البيانات في الاستمارة
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+    const password = document.getElementById('password-input').value;
+
+    const errors = validateLoginForm(email, password);
+    if (errors.length > 0) {
+        error_message.innerText = errors.join(". ");
+        return;
+    }
+
+    const response = await fetch('https://localhost:5001/api/account/login', {  // URL لـ API
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        alert(data.message); // على سبيل المثال عرض رسالة النجاح
+    } else {
+        alert('Login failed');
+    }
+});
+
+async function handleSignup(e) {
+    e.preventDefault();
+
+    const firstname = document.getElementById('firstname-input').value;
+    const email = document.getElementById('email-input').value;
+    const password = document.getElementById('password-input').value;
+    const repeatPassword = document.getElementById('repeat-password-input').value;
+
+    const errors = validateSignupForm(firstname, email, password, repeatPassword);
+    if (errors.length > 0) {
+        error_message.innerText = errors.join(". ");
+        return;
+    }
+
+    const response = await fetch('https://localhost:5001/api/account/signup', {  // URL لـ API
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ firstname, email, password })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        alert(data.message); // على سبيل المثال عرض رسالة النجاح
+    } else {
+        alert('Signup failed');
+    }
+}
+
+function validateLoginForm(email, password) {
+    let errors = [];
+    if (email === '') {
+        errors.push('Email is required');
+    }
+    if (password === '') {
+        errors.push('Password is required');
+    }
+    return errors;
+}
+
+function validateSignupForm(firstname, email, password, repeatPassword) {
+    let errors = [];
+    if (firstname === '') {
+        errors.push('Firstname is required');
+    }
+    if (email === '') {
+        errors.push('Email is required');
+    }
+    if (password === '' || password.length < 8) {
+        errors.push('Password is required and must have at least 8 characters');
+    }
+    if (password !== repeatPassword) {
+        errors.push('Passwords do not match');
+    }
+    return errors;
+}
+
+// **********************************************************
+        var LoginForm = document.getElementById ("LoginForm") ; 
+        var RegForm2 = document.getElementById ("RegForm") ; 
+        var Indicator = document.getElementById ("Indicator") ; 
+
+        function register() {
+            RegForm2.style.transform = "translateX(0px)"; 
+            LoginForm.style.transform = "translateX(0px)";  
+            Indicator.style.transform = "translateX(100px)";  
+        }
+
+        function login() {
+            RegForm2.style.transform = "translateX(300px)"; 
+            LoginForm.style.transform = "translateX(300px)"; 
+            Indicator.style.transform = "translateX(0px)"; 
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

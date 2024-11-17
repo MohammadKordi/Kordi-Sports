@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cart</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><span><span>k</span>ordi</span> Sports</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" id="img-Home"><img src="images/cart.png" width="25px" height="25px" /></a>
+        </div>
+    </div>
+
+    <!-- -----------Cart items Details------------- -->
+
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+
+            <!-- 1 -->
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/Real Madred/img1.webp" width="9.8%" />
+                        <div>
+                            <p>Adidas Real Madrid Home Mbappé 9</p>
+                            <small>Price : £99.94</small>
+                            <br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" min="0" /></td>
+                <td>£99.94</td>
+            </tr>
+
+            <!-- 2 -->
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/Barshlona2/img1.webp" width="9.8%" />
+                        <div>
+                            <p>Nike Barcelona Match Home Lamine Yamal 19</p>
+                            <small>Price : £96.92</small>
+                            <br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" min="0"/></td>
+                <td> <span id="case-total">£96.92</span></td>
+            </tr>
+
+            <!-- 3 -->
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/Arsenal/img1.webp" width="9.8%" />
+                        <div>
+                            <p>Adidas Arsenal Home Saka 7 Shirt </p>
+                            <small>Price : £97.93</small>
+                            <br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" min="0"/></td>
+                <td><span id="phone-total">£97.93</span></td>
+            </tr>
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td style="color: #ff523b; font-weight: 700;">Subtotal</td>
+                    <td style="font-weight: 500;"><span id="sub-total">1,278</span></td>
+                </tr>
+            </table>
+        </div>
+        <a href="" class="btn check">Check Out &#8594;</a>
+
+
+
+
+
+
+    </div>
+
+    <!-------------- Footer -------------->
+    <section>
+        <div class="footer" id="Contact">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Download App For Android and ios mobile phone</p>
+                        <div class="app-logo">
+                            <img src="images/play-store.png" />
+                            <img src="images/app-store.png" />
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <a href="index.html">
+                            <h3>
+                                <span>K<span>ordi </span></span>Sports
+                            </h3>
+                        </a>
+                        <p>
+                            Our Purpose Is To Sustainably Make the Pleasure and Benefits of
+                            Sports Accessible to the Many.
+                        </p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <a href="tel:+962790476651" target="_blank">
+                                <li>phone : 962 790 476 651</li>
+                            </a>
+                            <a href="mailto:mohkordi21@gmail.com" target="_blank">
+                                <li>Email : mohkordi21@gmail.com</li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <a href="https://x.com/home" target="_blank">
+                                <li>Twitter</li>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank">
+                                <li>Youtube</li>
+                            </a>
+                            <a href="https://web.facebook.com/" target="_blank">
+                                <li>Facebook</li>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <li>Instagram</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <hr />
+                <p class="Copyright">Copyright 2024@Mohammad-AlKordi</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
